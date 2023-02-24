@@ -290,7 +290,7 @@ namespace Kalkulator___Jovan_Dragas
             // button20
             // 
             this.button20.BackColor = System.Drawing.Color.Red;
-            this.button20.Location = new System.Drawing.Point(424, 211);
+            this.button20.Location = new System.Drawing.Point(445, 211);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(71, 39);
             this.button20.TabIndex = 21;
