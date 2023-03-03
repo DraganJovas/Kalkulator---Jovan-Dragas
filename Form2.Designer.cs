@@ -86,6 +86,7 @@ namespace Kalkulator___Jovan_Dragas
             this.button14.TabIndex = 23;
             this.button14.Text = "x";
             this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button13
             // 

@@ -10,7 +10,7 @@ namespace Kalkulator___Jovan_Dragas
     {
         public long VrLong()
         {
-            string a = textBox1.Text;
+            string a = "a";
             int x = 1;
             long br = 0;
             for (int i = 0; i < a.Length; i++)

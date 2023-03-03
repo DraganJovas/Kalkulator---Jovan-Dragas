@@ -16,5 +16,10 @@ namespace Kalkulator___Jovan_Dragas
         {
             InitializeComponent();
         }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
