@@ -19,7 +19,96 @@ namespace Kalkulator___Jovan_Dragas
 
         private void button14_Click(object sender, EventArgs e)
         {
+            textBox1.Text += "x";
+        }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "M";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "I";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "V";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "X";
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "L";
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "C";
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "D";
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length > 0)
+            {
+                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+            }
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "+";
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "-";
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += "/";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            f1.Show();
+            this.Hide();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Rimski r = new Rimski();
+            r.prepoznajR(textBox1.Text);
+            r.prviRInt();
+            r.drugiRInt();
+            textBox1.Text = r.rezR();
         }
     }
 }

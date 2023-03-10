@@ -58,6 +58,7 @@ namespace Kalkulator___Jovan_Dragas
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.textBox1.Location = new System.Drawing.Point(88, 84);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -289,6 +290,7 @@ namespace Kalkulator___Jovan_Dragas
             // button20
             // 
             this.button20.BackColor = System.Drawing.Color.Red;
+            this.button20.ForeColor = System.Drawing.Color.White;
             this.button20.Location = new System.Drawing.Point(424, 211);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(71, 39);
@@ -310,6 +312,7 @@ namespace Kalkulator___Jovan_Dragas
             // button24
             // 
             this.button24.BackColor = System.Drawing.Color.Red;
+            this.button24.ForeColor = System.Drawing.Color.White;
             this.button24.Location = new System.Drawing.Point(88, 478);
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(71, 39);

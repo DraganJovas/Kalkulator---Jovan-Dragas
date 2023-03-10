@@ -50,11 +50,13 @@ namespace Kalkulator___Jovan_Dragas
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.25F);
             this.textBox1.Location = new System.Drawing.Point(74, 92);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(325, 76);
             this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button16
             // 
@@ -66,6 +68,7 @@ namespace Kalkulator___Jovan_Dragas
             this.button16.TabIndex = 25;
             this.button16.Text = "+";
             this.button16.UseVisualStyleBackColor = false;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // button15
             // 
@@ -76,6 +79,7 @@ namespace Kalkulator___Jovan_Dragas
             this.button15.TabIndex = 24;
             this.button15.Text = "-";
             this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button14
             // 
@@ -97,24 +101,31 @@ namespace Kalkulator___Jovan_Dragas
             this.button13.TabIndex = 22;
             this.button13.Text = "/";
             this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button18
             // 
+            this.button18.BackColor = System.Drawing.Color.Red;
+            this.button18.ForeColor = System.Drawing.Color.White;
             this.button18.Location = new System.Drawing.Point(154, 201);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(71, 45);
             this.button18.TabIndex = 28;
-            this.button18.Text = ")";
-            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Text = "AC";
+            this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(74, 201);
+            this.button17.BackColor = System.Drawing.Color.Red;
+            this.button17.ForeColor = System.Drawing.Color.White;
+            this.button17.Location = new System.Drawing.Point(74, 400);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(71, 45);
             this.button17.TabIndex = 27;
-            this.button17.Text = "(";
-            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Text = "OFF";
+            this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // button1
             // 
@@ -126,6 +137,7 @@ namespace Kalkulator___Jovan_Dragas
             this.button1.TabIndex = 30;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -137,6 +149,7 @@ namespace Kalkulator___Jovan_Dragas
             this.button2.TabIndex = 31;
             this.button2.Text = "V";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -148,6 +161,7 @@ namespace Kalkulator___Jovan_Dragas
             this.button3.TabIndex = 32;
             this.button3.Text = "I";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -159,16 +173,18 @@ namespace Kalkulator___Jovan_Dragas
             this.button4.TabIndex = 33;
             this.button4.Text = "M";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button5.Location = new System.Drawing.Point(74, 400);
+            this.button5.Location = new System.Drawing.Point(74, 201);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(71, 45);
             this.button5.TabIndex = 34;
             this.button5.Text = "Vrati se";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -180,6 +196,7 @@ namespace Kalkulator___Jovan_Dragas
             this.button6.TabIndex = 35;
             this.button6.Text = "=";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -191,6 +208,7 @@ namespace Kalkulator___Jovan_Dragas
             this.button7.TabIndex = 36;
             this.button7.Text = "D";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -202,6 +220,7 @@ namespace Kalkulator___Jovan_Dragas
             this.button8.TabIndex = 37;
             this.button8.Text = "C";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
@@ -213,6 +232,7 @@ namespace Kalkulator___Jovan_Dragas
             this.button9.TabIndex = 38;
             this.button9.Text = "L";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button19
             // 
@@ -222,6 +242,7 @@ namespace Kalkulator___Jovan_Dragas
             this.button19.TabIndex = 29;
             this.button19.Text = "<<";
             this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // Form2
             // 

@@ -128,7 +128,7 @@ namespace Kalkulator___Jovan_Dragas
         {
             Form2 f = new Form2();
             f.Show();
-
+            this.Hide();
         }
 
         private void button5_Click(object sender, EventArgs e)

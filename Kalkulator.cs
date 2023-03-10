@@ -44,9 +44,9 @@ namespace Kalkulator___Jovan_Dragas
             }
             else
             {
-                while (a[i] != Convert.ToChar(operacije))
+                while (i < a.Length)
                 {
-                    prvi += a[i]; i++;
+                    drugi += a[i]; i++;
                 }
             }
 
