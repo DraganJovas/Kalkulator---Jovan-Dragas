@@ -12,14 +12,13 @@ namespace Kalkulator___Jovan_Dragas
 {
     public partial class Form1 : Form
     {
-        Kalkulator Kalkulator = new Kalkulator();
         public static TextBox izraz;
         public static Form2 vrednost;
         public Form1()
         {
             InitializeComponent();
         }
-
+        Kompleksni k = new Kompleksni();
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -95,8 +94,9 @@ namespace Kalkulator___Jovan_Dragas
 
         private void button12_Click(object sender, EventArgs e)
         {
-            Kalkulator.prepoznaj(textBox1.Text);
-            textBox1.Text = Kalkulator.rez();
+            k.prepoznajK(textBox1.Text);
+            k.prviKRe(); k.prviKIm(); k.drugiKRe(); k.drugiKIm(); k.rezKRe(); k.rezKIm();
+            textBox1.Text = k.rezK();
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -128,6 +128,7 @@ namespace Kalkulator___Jovan_Dragas
         {
             Form2 f = new Form2();
             f.Show();
+            Rimski r = new Rimski();
             this.Hide();
         }
 
@@ -159,6 +160,11 @@ namespace Kalkulator___Jovan_Dragas
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button22_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ovaj kalkulator je za long i kompleksne brojeve. Molim vas da prilikom unosa kompleksnih brojeva koristite zagrade", "Upustvo");
         }
     }
 }
