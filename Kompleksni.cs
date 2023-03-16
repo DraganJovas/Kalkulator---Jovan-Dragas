@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +16,7 @@ namespace Kalkulator___Jovan_Dragas
         public int prepoznajK(string a)
         {
             int i = 0;
-            prviK = rezK(); drugiK = "";
+            prviK = ""; drugiK = "";
             if (a[i] == '(')
             {
                 while (a[i] != ')')
@@ -72,16 +73,36 @@ namespace Kalkulator___Jovan_Dragas
         public double prviKIm()
         {
             char[] cifre = prviK.ToArray(); int i = 2; string value = "";
+            int znak = 1;
             while (!operacije.Contains(cifre[i])) { i++; }
-            while (cifre[i] != ')') { value+= cifre[i]; i++; }
-            return Convert.ToDouble(value);
+            if (cifre[i] == '-') znak = -1;
+            i++;
+            while (cifre[i] != ')') { value += cifre[i]; i++; }
+            if (value == "i")
+            {
+                return znak;
+            }
+            else
+            {
+                return Convert.ToDouble(value.Substring(0, value.Length - 1));
+            }
         }
         public double drugiKIm()
         {
             char[] cifre = drugiK.ToArray(); int i = 2; string value = "";
+            int znak = 1;
             while (!operacije.Contains(cifre[i])) { i++; }
+            if (cifre[i] == '-') znak = -1;
+            i++;
             while (cifre[i] != ')') { value += cifre[i]; i++; }
-            return Convert.ToDouble(value);
+            if (value == "i")
+            {
+                return znak;
+            }
+            else
+            {
+                return znak * Convert.ToDouble(value.Substring(0, value.Length - 1));
+            }
         }
         public double rezKRe()
         {
@@ -97,15 +118,16 @@ namespace Kalkulator___Jovan_Dragas
         {
             double r = drugiKRe() * drugiKRe() + drugiKIm() * drugiKIm();
             double q = prviKIm() * drugiKRe() - prviKRe() * drugiKIm();
-            if (operacijaK == '+') { return prviKRe() + drugiKRe(); }
-            else if (operacijaK == '-') { return prviKRe() - drugiKRe(); }
-            else if (operacijaK == 'x') { return prviKRe() * drugiKIm() - prviKIm() * drugiKRe(); }
+            if (operacijaK == '+') { return prviKIm() + drugiKIm(); }
+            else if (operacijaK == '-') { return prviKIm() - drugiKIm(); }
+            else if (operacijaK == 'x') { return prviKRe() * drugiKIm() + prviKIm() * drugiKRe(); }
             else if (operacijaK == '/') { return q / r; }
             else return 0;
         }
         public string rezK()
         {
-            return rezKRe().ToString() + rezKIm().ToString();
+            if (rezKIm() >= 0) { return "(" + rezKRe().ToString() + "+" + rezKIm().ToString() + "i)"; }
+            else return  "(" + rezKRe().ToString() + rezKIm().ToString() + "i)";
         }
     }
 }

@@ -74,22 +74,22 @@ namespace Kalkulator___Jovan_Dragas
 
         private void button16_Click(object sender, EventArgs e)
         {
-            textBox1.Text += " + ";
+            textBox1.Text += "+";
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
-            textBox1.Text += " - ";
+            textBox1.Text += "-";
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
-            textBox1.Text += " x ";
+            textBox1.Text += "x";
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-            textBox1.Text += " / ";
+            textBox1.Text += "/";
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -106,7 +106,7 @@ namespace Kalkulator___Jovan_Dragas
 
         private void button10_Click(object sender, EventArgs e)
         {
-            textBox1.Text += ".";
+            textBox1.Text += ",";
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -164,7 +164,9 @@ namespace Kalkulator___Jovan_Dragas
 
         private void button22_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show("Ovaj kalkulator je za long i kompleksne brojeve. Molim vas da prilikom unosa kompleksnih brojeva koristite zagrade", "Upustvo");
+            MessageBox.Show("Ovaj kalkulator je za long i kompleksne brojeve. " +
+                "Molim vas da prilikom unosa kompleksnih brojeva koristite zagrade. " +
+                "Prlikom unosa imaginarnog dela nemojte unositi x, na primer: 4i", "Upustvo");
         }
     }
 }
