@@ -126,7 +126,8 @@ namespace Kalkulator___Jovan_Dragas
         }
         public string rezK()
         {
-            if (rezKIm() >= 0) { return "(" + rezKRe().ToString() + "+" + rezKIm().ToString() + "i)"; }
+            if (drugiKRe() == 0 && drugiKIm() == 0 && operacijaK == '/') { return "ibarska magistrala"; }
+            else if (rezKIm() >= 0) { return "(" + rezKRe().ToString() + "+" + rezKIm().ToString() + "i)"; }
             else return  "(" + rezKRe().ToString() + rezKIm().ToString() + "i)";
         }
     }
