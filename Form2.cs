@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ namespace Kalkulator___Jovan_Dragas
         {
             InitializeComponent();
         }
+        Rimski r = new Rimski();
 
         private void button14_Click(object sender, EventArgs e)
         {
@@ -64,12 +66,13 @@ namespace Kalkulator___Jovan_Dragas
 
         private void button17_Click(object sender, EventArgs e)
         {
-            
+            MessageBox.Show("Zamisli da se ugasio i prekini kod", "ne znam kako");
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
+            r.ac();
         }
 
         private void button19_Click(object sender, EventArgs e)
@@ -104,11 +107,11 @@ namespace Kalkulator___Jovan_Dragas
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Rimski r = new Rimski();
             r.prepoznajR(textBox1.Text);
             r.prviRInt();
             r.drugiRInt();
             textBox1.Text = r.rezR();
+            
         }
     }
 }
