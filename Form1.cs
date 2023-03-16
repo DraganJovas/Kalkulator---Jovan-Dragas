@@ -31,7 +31,7 @@ namespace Kalkulator___Jovan_Dragas
 
         private void button24_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Zamisli da se ugasio i prekini kod", "ne znam kako");
         }
 
         private void button23_Click(object sender, EventArgs e)
@@ -165,16 +165,15 @@ namespace Kalkulator___Jovan_Dragas
 
         private void button22_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show("Ovaj kalkulator je za long i kompleksne brojeve. " +
+            MessageBox.Show("Ovaj kalkulator je za kompleksne brojeve. " +
                 "Molim vas da prilikom unosa kompleksnih brojeva koristite zagrade. " +
-                "Prlikom unosa imaginarnog dela nemojte unositi x, na primer: 4i", "Upustvo");
+                "Prlikom unosa imaginarnog dela nemojte unositi x, na primer: 4i. Ako Re ili Im ne postoji, uneti 0 ili 0i.", "Upustvo");
         }
 
         private void button23_Click_1(object sender, EventArgs e)
         {
             Form3 f = new Form3();
             f.Show();
-            Long l = new Long();
             this.Hide();
         }
     }

@@ -19,7 +19,7 @@ namespace Kalkulator___Jovan_Dragas
         public int prepoznajR(string a)
         {
             char[] operacije = { '+', '-', 'x', '/' }; int i = 0;
-            prviR = rezR(); drugiR = "";
+            prviR = ""; drugiR = "";
             if (prviR == "")
             {
                 while (!operacije.Contains(a[i]))

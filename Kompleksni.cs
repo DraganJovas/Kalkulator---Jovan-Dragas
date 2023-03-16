@@ -54,21 +54,23 @@ namespace Kalkulator___Jovan_Dragas
         }
         public double prviKRe()
         {
-            char[] cifre = prviK.ToArray(); int i = 1; string value = "";
+            char[] cifre = prviK.ToArray(); int i = 1; string value = ""; int znak = 1;
+            if (cifre[1] == '-') { znak = -1; i = 2; }
             while (!operacije.Contains(cifre[i]))
             {
                 value += cifre[i]; i++;
             }
-            return Convert.ToDouble(value);
+            return znak * Convert.ToDouble(value);
         }
         public double drugiKRe()
         {
-            char[] cifre = drugiK.ToArray(); int i = 1; string value = "";
+            char[] cifre = drugiK.ToArray(); int i = 1; string value = ""; int znak = 1;
+            if (cifre[1] == '-') { znak = -1; i = 2; }
             while (!operacije.Contains(cifre[i]))
             {
                 value += cifre[i]; i++;
             }
-            return Convert.ToDouble(value);
+            return znak * Convert.ToDouble(value);
         }
         public double prviKIm()
         {
