@@ -10,6 +10,15 @@ namespace Kalkulator___Jovan_Dragas
     {
         public string mantisa;
         public int eksponent, znak;
+
+        public static Long kec, nula;
+        public static int acc;
+        static Long()
+        {
+            kec = new Long("1");
+            nula = new Long("0");
+            acc = 30;
+        }
         public string broj
         {
             get
@@ -45,6 +54,7 @@ namespace Kalkulator___Jovan_Dragas
             {
                 if ((broj[i] < 48 || broj[i] > 57) && broj[i] != '.') return;
             }
+
             if (broj.Count(c => c == '.') > 1) return;
             if (broj.Count(c => c == '.') == 0)
             {
@@ -72,9 +82,10 @@ namespace Kalkulator___Jovan_Dragas
             string mantisa = "";
             A.mantisa = A.mantisa.Replace(".", "");
             B.mantisa = B.mantisa.Replace(".", "");
+
             for (int i = A.eksponent; i < maxEx; i++) A.mantisa += "0";
             for (int i = B.eksponent; i < maxEx; i++) B.mantisa += "0";
-            int JimCarry = 0;
+            int pom = 0;
             string maxMan = B.mantisa, minMan = A.mantisa;
             if (A.mantisa.Length > B.mantisa.Length)
             {
@@ -86,16 +97,16 @@ namespace Kalkulator___Jovan_Dragas
                 int cifra;
                 if (i >= maxMan.Length - minMan.Length)
                 {
-                    cifra = (maxMan[i] - 48 + minMan[i - maxMan.Length + minMan.Length] - 48 + JimCarry);
+                    cifra = (maxMan[i] - 48 + minMan[i - maxMan.Length + minMan.Length] - 48 + pom);
                 }
                 else
                 {
-                    cifra = (maxMan[i] - 48 + JimCarry);
+                    cifra = (maxMan[i] - 48 + pom);
                 }
-                JimCarry = cifra / 10;
+                pom = cifra / 10;
                 mantisa = (cifra % 10).ToString() + mantisa;
             }
-            if (JimCarry == 1) mantisa = "1" + mantisa;
+            if (pom == 1) mantisa = "1" + mantisa;
             return new Long(mantisa, maxEx, znak);
         }
         public static Long operator -(Long A, Long B)
@@ -110,7 +121,7 @@ namespace Kalkulator___Jovan_Dragas
             B.mantisa = B.mantisa.Replace(".", "");
             for (int i = A.eksponent; i < maxEx; i++) A.mantisa += "0";
             for (int i = B.eksponent; i < maxEx; i++) B.mantisa += "0";
-            int JimCarry = 0;
+            int pom = 0;
             string maxMan = B.mantisa, minMan = A.mantisa;
             if (A.mantisa.Length > B.mantisa.Length)
             {
@@ -123,26 +134,25 @@ namespace Kalkulator___Jovan_Dragas
             for (int i = maxMan.Length - 1; i >= 0; i--)
             {
                 int cifra;
-                cifra = A.mantisa[i] - B.mantisa[i] - JimCarry;
+                cifra = A.mantisa[i] - B.mantisa[i] - pom;
                 if (cifra < 0)
                 {
-                    JimCarry = 1;
+                    pom = 1;
                     cifra = 10 + cifra;
                 }
-                else JimCarry = 0;
+                else pom = 0;
 
                 mantisa = cifra + mantisa;
             }
-            Console.WriteLine(mantisa);
-            if (JimCarry == 1)
+            if (pom == 1)
             {
                 znak = -1;
                 string mantisa2 = "1";
-                for (int i = 1; i < maxMan.Length; i++)
+                for (int i = 0; i < maxMan.Length; i++)
                 {
                     mantisa2 += "0";
                 }
-                A = new Long(mantisa.Substring(1));
+                A = new Long(mantisa);
                 mantisa = (new Long(mantisa2) - A).mantisa;
             }
             mantisa = mantisa.TrimStart('0');
@@ -154,17 +164,25 @@ namespace Kalkulator___Jovan_Dragas
             int znak = 1, exp = 0;
             Long res = new Long("0"),
                 jedan = new Long("1");
-
             if (A.znak * B.znak == -1) znak *= -1;
             exp = A.eksponent + B.eksponent;
             A.mantisa.Replace(".", "");
             B.mantisa.Replace(".", "");
             A = new Long(A.mantisa);
             B = new Long(B.mantisa);
-            while (B.mantisa != "0")
+            for (int i = 0; i < B.mantisa.Length; i++)
             {
-                res = res + A;
-                B = B - jedan;
+                int temp = B.mantisa[B.mantisa.Length - i - 1] - 48;
+                Long C = new Long("0");
+                for (int j = 0; j < temp; j++)
+                {
+                    C = C + A;
+                }
+                for (int j = 0; j < i; j++)
+                {
+                    C.mantisa += "0";
+                }
+                res = res + C;
             }
             res.eksponent = exp;
             res.znak = znak;
@@ -173,47 +191,46 @@ namespace Kalkulator___Jovan_Dragas
         public static Long operator /(Long A, Long B)
         {
             if (A.mantisa == "ibarska magistrala" || B.mantisa == "ibarska magistrala") return new Long("ibarska magistrala");
-            if (B.mantisa == "0") return new Long("ibarska magistrala");
-            int znak = 1, exp = 0, acc = 20;
+            if (B.mantisa == "0") return new Long("e");
+            int znak = 1, exp = 0;
             Long br = new Long("0");
             exp = A.eksponent - B.eksponent;
             A = new Long(A.mantisa);
             B = new Long(B.mantisa);
-            while ((A - B).znak == 1)
+            string res = "";
+            Long temp2 = new Long("0");
+            foreach (char c in A.mantisa)
             {
-                br++;
-                A = A - B;
-            }
-            A = new Long(A.mantisa);
-            for (int i = 0; i < acc; i++)
-            {
-                if (A.mantisa == "0") break;
-                if ((A - B).znak == 1)
+                Long temp = new Long(temp2.mantisa + c);
+                int i = 0;
+                while (temp - B != new Long("0") && (temp - B).znak != -1)
                 {
-                    br++;
-                    A = A - B;
-                    A = new Long(A.mantisa);
+                    temp = temp - B;
+                    i++;
                 }
-                else
-                {
-                    A.mantisa += "0";
-                    br.mantisa += "0";
-                    exp++;
-                }
+                temp2 = temp;
+                res += i;
             }
-            if (exp > 0)
+            Console.WriteLine(temp2.mantisa);
+            if (temp2.mantisa.Trim('0') == "")
+                return new Long(res.TrimStart('0'), br.eksponent, znak);
+            for (int j = 0; j < acc; j++)
             {
-                br.eksponent += exp;
-            }
-            else
-            {
-                for (int i = exp; i < 0; i++)
+                Long temp = new Long(temp2.mantisa + "0");
+                int i = 0;
+                while (temp - B != new Long("0") && (temp - B).znak != -1)
                 {
-                    br.mantisa += "0";
+                    temp = temp - B;
+                    i++;
                 }
+                res += i;
+                temp2 = temp;
+                exp++;
+                if (temp2.mantisa.Trim('0') == "") break;
             }
-            return new Long(br.mantisa, br.eksponent, znak);
+            return new Long(res.TrimStart('0'), exp, znak);
         }
-        public static Long operator ++(Long A) { return A + new Long("1"); }
+
+        public static Long operator ++(Long A) { return A + kec; }
     }
 }

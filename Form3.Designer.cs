@@ -200,7 +200,7 @@
             this.textBox2.Location = new System.Drawing.Point(69, 121);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(623, 47);
+            this.textBox2.Size = new System.Drawing.Size(623, 44);
             this.textBox2.TabIndex = 13;
             // 
             // button13
@@ -264,7 +264,7 @@
             this.textBox3.Location = new System.Drawing.Point(69, 485);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(623, 47);
+            this.textBox3.Size = new System.Drawing.Size(623, 40);
             this.textBox3.TabIndex = 19;
             // 
             // button24
